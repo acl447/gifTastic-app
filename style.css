@@ -1,0 +1,10 @@
+html, body {
+
+    background: lightgray;
+}
+
+
+#input-box {
+
+    border: 1px solid gray;
+}
