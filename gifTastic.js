@@ -40,6 +40,8 @@ $(document.body).on("click", "#gif-btn", function () {
 
     var buttonText = $(this).text();
 
+    
+
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + buttonText + "&api_key=dTbudSbvuU8M5Az7O0DnfqU6CIYbmLT8&limit=10";
 
 
@@ -64,7 +66,11 @@ $(document.body).on("click", "#gif-btn", function () {
 
             var imgURL = gifArray[i].images.fixed_height_still.url;
 
+            console.log(imgURL);
+
             var animatedURL = gifArray[i].images.fixed_height.url;
+
+            console.log(animatedURL);
 
             var gifImageElement = $("<img id='gif-img'>").attr("src", imgURL);
 
@@ -79,32 +85,30 @@ $(document.body).on("click", "#gif-btn", function () {
             $("#gif-section").prepend(gifDiv);
         }
 
-
-
+        
+        
 
 
 
     })
 
+   
+
 
 });
 
-$(document.body).on("click", "#gif-img", function () {
+/*$(document.body).on("click", "#gif-img", function () {
 
 
     var state = $(this).attr("data-state");
 
-    var imgURL = 
-
-
-
-
+    var imgSrc = $(this).attr("src");
 
 
     if (state === "still") {
 
 
-        $(this).attr("src", imgURL);
+        $(this).attr("src", );
 
         $(this).attr("data-state", "animate");
     } else {
@@ -114,7 +118,7 @@ $(document.body).on("click", "#gif-img", function () {
         $(this).attr("data-state", "still");
 
 
-    }
+    } 
 
 
 
@@ -125,7 +129,7 @@ $(document.body).on("click", "#gif-img", function () {
 
 
 
-});
+}); */
 
 
 
