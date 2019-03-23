@@ -16,11 +16,6 @@ for (var i = 0; i < topics.length; i++) {
 };
 
 
-
-
-
-
-
 $(document.body).on("click", "#submit", function () {
 
     var inputValue = $("#input-box").val();
@@ -37,6 +32,94 @@ $(document.body).on("click", "#submit", function () {
     $("#gif-btn-section").append(newButton);
 
 
+});
+
+
+
+$(document.body).on("click", "#gif-btn", function () {
+
+    var buttonText = $(this).text();
+
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + buttonText + "&api_key=dTbudSbvuU8M5Az7O0DnfqU6CIYbmLT8&limit=10";
+
+
+
+    $.ajax({
+
+        url: queryURL,
+        method: "GET"
+
+
+
+
+    }).then(function (response) {
+
+        var gifArray = response.data;
+
+        for (var i = 0; i < gifArray.length; i++) {
+
+            var gifDiv = $("<div id='gif-div'>");
+
+            var gifRating = gifArray[i].rating;
+
+            var imgURL = gifArray[i].images.fixed_height_still.url;
+
+            var animatedURL = gifArray[i].images.fixed_height.url;
+
+            var gifImageElement = $("<img id='gif-img'>").attr("src", imgURL);
+
+            gifImageElement.addClass("my-3");
+
+            gifImageElement.attr("data-state", "still");
+
+            gifDiv.append(gifImageElement);
+
+            gifDiv.append(gifRating);
+
+            $("#gif-section").prepend(gifDiv);
+        }
+
+
+
+
+
+
+    })
+
+
+});
+
+$(document.body).on("click", "#gif-img", function () {
+
+
+    var state = $(this).attr("data-state");
+
+    var imgURL = 
+
+
+
+
+
+
+    if (state === "still") {
+
+
+        $(this).attr("src", imgURL);
+
+        $(this).attr("data-state", "animate");
+    } else {
+
+        $(this).attr("src", imgURL);
+
+        $(this).attr("data-state", "still");
+
+
+    }
+
+
+
+
+
 
 
 
@@ -46,63 +129,6 @@ $(document.body).on("click", "#submit", function () {
 
 
 
-
-
-
-
-
-
-$(document.body).on("click", "#gif-btn", function() {
-
-    var buttonText = $(this).text();
-
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + buttonText + "&api_key=dTbudSbvuU8M5Az7O0DnfqU6CIYbmLT8&limit=10";
-
-    
-
-$.ajax ({
-
-    url: queryURL,
-    method: "GET"
-
-
-
-
-}).then(function(response) {
-
-    var gifArray = response.data;
-
-    console.log(gifArray);
-
-    for (var i = 0; i < gifArray.length; i++) {
-
-        console.log(gifArray[i].rating);
-
-        var gifDiv = $("<div class='col text-center'>");
-
-        var gifRating = gifArray[i].rating;
-
-       
-        var imgURL = gifArray[i].images.fixed_height_still.url;
-        
-
-        var gifImageElement = $("<img>").attr("src", imgURL);
-
-        gifImageElement.addClass("mx-2 my-2");
-
-        gifDiv.append(gifImageElement);
-
-        gifDiv.append(gifRating);
-
-        $("#gif-section").prepend(gifDiv); 
-    } 
-
-
-
-}) 
-
-
-})
 
 
 
