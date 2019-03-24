@@ -9,12 +9,4 @@ html, body {
     border: 1px solid gray;
 }
 
-#gif-div {
 
-    text-transform: uppercase;
-}
-
-#gif-img {
-
-    z-index: 2;
-}
