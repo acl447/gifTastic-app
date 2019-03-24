@@ -66,13 +66,13 @@ $(document.body).on("click", "#gif-btn", function () {
 
             var imgURL = gifArray[i].images.fixed_height_still.url;
 
-            console.log(imgURL);
-
-            var animatedURL = gifArray[i].images.fixed_height.url;
-
-            console.log(animatedURL);
+            var animateURL = gifArray[i].images.fixed_height.url;
 
             var gifImageElement = $("<img id='gif-img'>").attr("src", imgURL);
+
+            gifImageElement.attr("data-still", imgURL);
+            
+            gifImageElement.attr("data-animate", animateURL);
 
             gifImageElement.addClass("my-3");
 
@@ -97,25 +97,23 @@ $(document.body).on("click", "#gif-btn", function () {
 
 });
 
-/*$(document.body).on("click", "#gif-img", function () {
+$(document.body).on("click", "#gif-img", function () {
 
 
     var state = $(this).attr("data-state");
 
-    var imgSrc = $(this).attr("src");
-
-
+    
     if (state === "still") {
 
-
-        $(this).attr("src", );
+        $(this).attr("src", $(this).attr("data-animate"));
 
         $(this).attr("data-state", "animate");
+
     } else {
 
-        $(this).attr("src", imgURL);
+        $(this).attr("src", $(this).attr("data-still"));
 
-        $(this).attr("data-state", "still");
+        $(this).attr("data-state", "still"); 
 
 
     } 
@@ -129,7 +127,7 @@ $(document.body).on("click", "#gif-btn", function () {
 
 
 
-}); */
+}); 
 
 
 
