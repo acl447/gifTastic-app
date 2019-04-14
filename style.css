@@ -1,8 +1,11 @@
+/* Background */
+
 html, body {
 
     background: lightgray;
 }
 
+/* Text Box Where User Enters Sport Name */
 
 #input-box {
 
