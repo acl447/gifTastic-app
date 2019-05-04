@@ -15,7 +15,15 @@ Click on a button labelled with a sport name to see 10 gifs on that sport.
 
 
 
-Click on a gif to animate it and click again to return to the still image. 
+Click on a gif to animate it. 
+
+<img width="589" alt="Screen Shot 2019-05-03 at 6 30 52 PM" src="https://user-images.githubusercontent.com/44036798/57172221-b7c14580-6dd1-11e9-946f-2b7015d872da.png">
+
+
+
+
+
+And click again to return to the still image. 
 
 
 
