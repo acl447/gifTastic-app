@@ -88,7 +88,7 @@ $(document.body).on("click", "#gif-btn", function () {
 
             gifImageElement.attr("data-animate", animateURL);
 
-            gifImageElement.addClass("my-3");
+            gifImageElement.addClass("my-3 mr-3");
 
             gifImageElement.attr("data-state", "still");
 
